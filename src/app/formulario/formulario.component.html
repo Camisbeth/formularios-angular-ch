@@ -1,0 +1,119 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="login-box">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('email')?.hasError('required') &&
+        formulario.get('email')?.touched
+      "
+    >
+      El email es requerido.
+    </div>
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('email')?.hasError('email') &&
+        formulario.get('email')?.touched
+      "
+    >
+      El email no es válido.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="nombreCompleto">Nombre Completo:</label>
+    <input
+      type="text"
+      id="nombreCompleto"
+      class="form-control"
+      formControlName="nombreCompleto"
+    />
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('nombreCompleto')?.hasError('required') &&
+        formulario.get('nombreCompleto')?.touched
+      "
+    >
+      El nombre completo es requerido.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="edad">Edad:</label>
+    <input type="text" id="edad" class="form-control" formControlName="edad" />
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('edad')?.hasError('required') &&
+        formulario.get('edad')?.touched
+      "
+    >
+      La edad es requerida.
+    </div>
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('edad')?.hasError('pattern') &&
+        formulario.get('edad')?.touched
+      "
+    >
+      La edad debe ser un número.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni" class="form-control" formControlName="dni" />
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('dni')?.hasError('required') &&
+        formulario.get('dni')?.touched
+      "
+    >
+      El DNI es requerido.
+    </div>
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('dni')?.hasError('pattern') &&
+        formulario.get('dni')?.touched
+      "
+    >
+      El DNI debe ser un número.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="curso">Curso:</label>
+    <input
+      type="text"
+      id="curso"
+      class="form-control"
+      formControlName="curso"
+    />
+    <div
+      class="err"
+      *ngIf="
+        formulario.get('curso')?.hasError('required') &&
+        formulario.get('curso')?.touched
+      "
+    >
+      El curso es requerido.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="formulario.invalid">
+    Enviar
+
+    <span></span>
+  </button>
+</form>
