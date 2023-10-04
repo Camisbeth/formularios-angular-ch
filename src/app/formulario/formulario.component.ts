@@ -20,8 +20,6 @@ export class FormularioComponent {
   }
 
   onSubmit() {
-    // Aquí puedes agregar la lógica para manejar el envío del formulario
-    // Por ejemplo, imprimir los valores en la consola por ahora
     console.log('Formulario enviado:', this.formulario.value);
   }
 }
